@@ -3,8 +3,36 @@ Button = React.createClass({
     return (
       <button
         className={this.props.className}
-        onClick={this.props.onClick}>{this.props.text}
+        onClick={this.props.onClick}
+        style={styles.base}>{this.props.text}
       </button>
     );
   }
 });
+
+var styles = {
+  base: {
+    borderRadius: '3em',
+    border: '#eb5f3a 1px solid',
+    background: 'transparent',
+    color: '#eb5f3a',
+    cursor: 'pointer',
+    float: 'right',
+    fontFamily: 'Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif',
+    fontSize: '1rem',
+    lineHeight: '1',
+    margin: '0',
+    outline: 'none',
+    padding: '10px 30px',
+    transition: 'all 200ms ease-in',
+    ':hover': {
+      background: '#eb5f3a',
+      color: '#fff'
+    },
+    ':active': {
+      boxShadow: 'rgba(0,0,0,.3) 0 1px 3px 0 inset'
+    }
+  }
+}
+
+Button = Radium(Button);
