@@ -43,7 +43,7 @@ body {
   text-align: center;
 }
 
-.leaderboard {
+.players {
   border-top: 1px solid #f1f1f1;
   counter-reset: ol-counter;
   list-style-type: none;
