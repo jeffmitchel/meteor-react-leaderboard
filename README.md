@@ -6,7 +6,7 @@ A React version of the Leaderboard example app that I'm using for experiments.
 
 ### React
 
-Converted all Blaze templates to React individual React components, one per file. All state is managed by the Application component (client/app.jsx) and is passed down using props.
+Converted all Blaze templates to individual React components, one per file. All state is managed by the Application component (client/app.jsx) and is passed down using props.
 
 ### Radium
 
