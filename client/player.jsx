@@ -4,9 +4,9 @@ Player = React.createClass({
   },
 
   render() {
-    const cn = 'player' + (this.props.selected ? ' selected' : '');
+    const cx = classNames('player', {selected: this.props.selected});
     return (
-      <li className={cn} onClick={this.clickHandler}>
+      <li className={cx} onClick={this.clickHandler}>
         <span className='name'>{this.props.player.name}</span>
         <span className='score'>{this.props.player.score}</span>
       </li>
