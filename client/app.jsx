@@ -1,12 +1,16 @@
-PlayersCollection = new Mongo.Collection("players");
+/* global React Leaderboard */
 
-Application = React.createClass({
+PlayersCollection = new Mongo.Collection('players');
+
+let Application = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    var player = PlayersCollection.findOne(Session.get("selectedPlayer"));
+    let player = PlayersCollection.findOne(Session.get('selectedPlayer'));
     return {
-      players: PlayersCollection.find({}, { sort: { score: -1, name: 1 } }).fetch(),
+      players: PlayersCollection
+        .find({}, { sort: { score: -1, name: 1 } })
+        .fetch(),
       selectedPlayer: {
         id: player && player._id,
         name: player && player.name
@@ -15,11 +19,11 @@ Application = React.createClass({
   },
 
   selectPlayer(id) {
-    Session.set("selectedPlayer", id);
+    Session.set('selectedPlayer', id);
   },
 
   incrementScore() {
-    PlayersCollection.update(Session.get("selectedPlayer"), {$inc: {score: 5}});
+    PlayersCollection.update(Session.get('selectedPlayer'), {$inc: {score: 5}});
   },
 
   render() {
@@ -34,6 +38,6 @@ Application = React.createClass({
   }
 });
 
-Meteor.startup(function () {
-  React.render(<Application />, document.getElementById("application"));
+Meteor.startup(() => {
+  React.render(<Application />, document.getElementById('application'));
 });

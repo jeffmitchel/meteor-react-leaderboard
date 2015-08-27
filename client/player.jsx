@@ -1,4 +1,12 @@
+/* global React */
+
 Player = React.createClass({
+  propTypes: {
+    player: React.PropTypes.object,
+    selected: React.PropTypes.bool,
+    selectPlayer: React.PropTypes.func
+  },
+
   clickHandler() {
     this.props.selectPlayer(this.props.player._id);
   },

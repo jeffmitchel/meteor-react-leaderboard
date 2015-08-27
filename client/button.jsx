@@ -1,16 +1,6 @@
-Button = React.createClass({
-  render() {
-    return (
-      <button
-        className={this.props.className}
-        onClick={this.props.onClick}
-        style={styles.base}>{this.props.text}
-      </button>
-    );
-  }
-});
+/* global React, Radium, */
 
-var styles = {
+const styles = {
   base: {
     borderRadius: '3em',
     border: '#eb5f3a 1px solid',
@@ -33,6 +23,24 @@ var styles = {
       boxShadow: 'rgba(0,0,0,.3) 0 1px 3px 0 inset'
     }
   }
-}
+};
+
+Button = React.createClass({
+  propTypes: {
+    className: React.PropTypes.string,
+    onClick: React.PropTypes.func,
+    text: React.PropTypes.string
+  },
+
+  render() {
+    return (
+      <button
+        className={this.props.className}
+        onClick={this.props.onClick}
+        style={styles.base}>{this.props.text}
+      </button>
+    );
+  }
+});
 
 Button = Radium(Button);

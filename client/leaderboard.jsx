@@ -1,4 +1,13 @@
+/* global React, Players, Selected */
+
 Leaderboard = React.createClass({
+  propTypes: {
+    players: React.PropTypes.array,
+    incrementScore: React.PropTypes.func,
+    selectPlayer: React.PropTypes.func,
+    selectedPlayer: React.PropTypes.object
+  },
+
   render() {
     return (
       <div className='outer'>
