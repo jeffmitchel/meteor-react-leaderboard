@@ -1,4 +1,4 @@
-/* global React Leaderboard */
+/* global Meteor, React, Leaderboard, ConnectionStatus */
 
 PlayersCollection = new Mongo.Collection('players');
 
@@ -14,7 +14,8 @@ let Application = React.createClass({
       selectedPlayer: {
         id: player && player._id,
         name: player && player.name
-      }
+      },
+      connection: Meteor.status()
     };
   },
 
@@ -28,12 +29,18 @@ let Application = React.createClass({
 
   render() {
     return (
-      <Leaderboard
-        players={this.data.players}
-        selectedPlayer={this.data.selectedPlayer}
-        selectPlayer={this.selectPlayer}
-        incrementScore={this.incrementScore}
-      />
+      <div>
+        <ConnectionStatus
+          connection={this.data.connection}
+          onClick={Meteor.reconnect}
+        />
+        <Leaderboard
+          players={this.data.players}
+          selectedPlayer={this.data.selectedPlayer}
+          selectPlayer={this.selectPlayer}
+          incrementScore={this.incrementScore}
+        />
+      </div>
     );
   }
 });
