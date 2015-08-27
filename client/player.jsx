@@ -2,9 +2,9 @@
 
 Player = React.createClass({
   propTypes: {
-    player: React.PropTypes.object,
-    selected: React.PropTypes.bool,
-    selectPlayer: React.PropTypes.func
+    player: React.PropTypes.object.isRequired,
+    selected: React.PropTypes.bool.isRequired,
+    selectPlayer: React.PropTypes.func.isRequired
   },
 
   clickHandler() {

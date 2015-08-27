@@ -28,8 +28,14 @@ const styles = {
 Button = React.createClass({
   propTypes: {
     className: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    text: React.PropTypes.string
+    onClick: React.PropTypes.func.isRequired,
+    text: React.PropTypes.string.isRequired
+  },
+
+  getDefaultProps() {
+    return {
+      className: ''
+    };
   },
 
   render() {

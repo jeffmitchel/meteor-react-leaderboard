@@ -2,8 +2,8 @@
 
 Selected = React.createClass({
   propTypes: {
-    incrementScore: React.PropTypes.func,
-    selectedPlayer: React.PropTypes.object
+    incrementScore: React.PropTypes.func.isRequired,
+    selectedPlayer: React.PropTypes.object.isRequired
   },
 
   render() {

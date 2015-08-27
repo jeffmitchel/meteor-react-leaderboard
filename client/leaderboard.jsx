@@ -2,10 +2,10 @@
 
 Leaderboard = React.createClass({
   propTypes: {
-    players: React.PropTypes.array,
-    incrementScore: React.PropTypes.func,
-    selectPlayer: React.PropTypes.func,
-    selectedPlayer: React.PropTypes.object
+    players: React.PropTypes.array.isRequired,
+    incrementScore: React.PropTypes.func.isRequired,
+    selectPlayer: React.PropTypes.func.isRequired,
+    selectedPlayer: React.PropTypes.object.isRequired
   },
 
   render() {

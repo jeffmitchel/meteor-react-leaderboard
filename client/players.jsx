@@ -2,9 +2,9 @@
 
 Players = React.createClass({
   propTypes: {
-    players: React.PropTypes.array,
-    selectPlayer: React.PropTypes.func,
-    selectedPlayer: React.PropTypes.object
+    players: React.PropTypes.array.isRequired,
+    selectPlayer: React.PropTypes.func.isRequired,
+    selectedPlayer: React.PropTypes.object.isRequired
   },
 
   render() {

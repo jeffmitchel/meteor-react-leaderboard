@@ -20,8 +20,8 @@ const styles = {
 
 ConnectionStatus = React.createClass({
   propTypes: {
-    connection: React.PropTypes.object,
-    onClick: React.PropTypes.func
+    connection: React.PropTypes.object.isRequired,
+    onClick: React.PropTypes.func.isRequired
   },
 
   render() {
