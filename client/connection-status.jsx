@@ -4,12 +4,12 @@ const styles = {
   disconnected: {
     background: '#f00',
     color: '#fee',
-    fontSize: '1.3rem',
+    fontSize: '1.1rem',
     fontWeight: 'bold',
     marginBottom: '10px',
     padding: '10px 0',
     textAlign: 'center',
-    transition: 'all 200ms ease-in',
+    transition: 'all 100ms ease-in',
     ':hover': {
       color: '#fff'
     }
@@ -19,17 +19,20 @@ const styles = {
 };
 
 ConnectionStatus = React.createClass({
-  propTypes: {
-    connection: React.PropTypes.object.isRequired,
-    onClick: React.PropTypes.func.isRequired
+  mixins: [ReactMeteorData],
+
+  getMeteorData() {
+    return {
+      connection: Meteor.status()
+    };
   },
 
   render() {
     return (
-      <div onClick={this.props.onClick}
-        style={this.props.connection.connected ?
+      <div onClick={Meteor.reconnect}
+        style={this.data.connection.connected ?
             styles.connected : styles.disconnected} >
-        {this.props.connection.connected ?
+        {this.data.connection.connected ?
           '' : 'Not connected to the server.'}
       </div>
     );
